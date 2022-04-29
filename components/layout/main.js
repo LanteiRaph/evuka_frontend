@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Footer } from "../Footer";
-import  {NavBar}  from "../Nav";
+import { Footer } from "../footer";
+import  {NavBar}  from "../nav";
 
 
 const MainLayout = ({ children }) => {

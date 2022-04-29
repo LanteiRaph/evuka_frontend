@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import MainLayout from "../../components/layouts/main";
+import MainLayout from "../../components/layout/main";
 import FormInput from "../../components/auth/FormInput";
 import AuthBtn from "../../components/auth/AuthBtn";
 import Link from "next/link";
@@ -12,7 +12,7 @@ const signup = () => {
   const { signup, authError, clearUser } = useContext(AuthContext);
 
   //Clear any user on load.
-  useEffect(() => clearUser(), []);
+  useEffect(() => {clearUser()}, []);
 
 
   //Compile the state needed to handle sign up (Local state)
@@ -22,7 +22,7 @@ const signup = () => {
   const [authReady, setAuthReady] = useState(false);
 
   //Incase of an error.
-  useEffect(() => authError && toast.error(authError), [authError]);
+  useEffect(() => {authError && toast.error(authError)}, [authError]);
 
   //Handle the signup
   const handleSubmit = async (e) => {
@@ -31,7 +31,9 @@ const signup = () => {
 
     //Update the state
     setAuthReady(true);
-    await signup({ name, email, password });
+    await signup({ name, email, password }).then((res) => {
+          console.log(res)
+    });
     setAuthReady(false);
   };
 

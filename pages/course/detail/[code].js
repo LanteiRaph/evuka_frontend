@@ -1,5 +1,5 @@
 import React from "react";
-import MainLayout from "../../../components/layouts/main";
+import MainLayout from "../../../components/layout/main";
 import Banner from "../../../components/courses/detail/Banner";
 import WhatLearnt from "../../../components/courses/detail/WhatLearnt";
 import CourseDetail from "../../../components/courses/detail/CourseDetail";
@@ -33,8 +33,10 @@ const course_uuid = ({ data }) => {
 };
 
 export const getServerSideProps = async ({ req, res, query: { code } }) => {
+  console.log(code)
   const resAPI = await fetch(`${BACKEND_URI}/courses/detail/${code}/`);
 
+ 
   if (!resAPI.ok) {
     return {
       redirect: {

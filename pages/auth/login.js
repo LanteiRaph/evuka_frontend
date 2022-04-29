@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import MainLayout from "../../components/layouts/main";
+import MainLayout from "../../components/layout/main";
 import FormInput from "../../components/auth/FormInput";
 import AuthBtn from "../../components/auth/AuthBtn";
 import Link from "next/link";
@@ -17,7 +17,7 @@ const login = () => {
   const { login, authError, clearUser } = useContext(AuthContext);
 
   //On load clear any new user.
-  useEffect(() => clearUser(), []);
+  useEffect(() => {clearUser()}, []);
 
 
   //Handle the submit(Login a user to the applicaion)
@@ -30,7 +30,7 @@ const login = () => {
   };
 
   //Incase of any error responde back to the user.
-  useEffect(() => authError && toast.error(authError), [authError]);
+  useEffect(() => {authError && toast.error(authError)}, [authError]);
 
   return (
     <MainLayout>

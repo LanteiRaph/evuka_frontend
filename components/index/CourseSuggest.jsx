@@ -13,6 +13,7 @@ const CourseSuggest = ({ data }) => {
     setSuggestedCourse(
       data.find((sector) => sector.topic_name == suggest).featured_courses
     );
+    console.log(suggestedCourse)
   }, [suggest]);
 
   return (

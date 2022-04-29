@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import MainLayout from "../../components/layouts/main";
+import MainLayout from "../../components/layout/main";
 import CartItem from "../../components/cart/CartItem";
 import NoItemCart from "../../components/cart/NoItemCart";
 import CartContext from "../../context/CartContext";
@@ -52,9 +52,7 @@ function CartIndex() {
       }
     }
   };
-
-  //Onload send all cart items to the server.
-  useEffect(async () => {
+  const saveCart = async () =>{
     if (cart.length > 0) {
       const res = await fetch(`${BACKEND_URI}/courses/cart/`, {
         method: "POST",
@@ -71,6 +69,11 @@ function CartIndex() {
         setCartReady(true);
       }
     }
+  }
+
+  //Onload send all cart items to the server.
+  useEffect(  () => {
+    saveCart()
   }, []);
 
   //Delete an item from the cart
@@ -102,7 +105,7 @@ function CartIndex() {
               {cartDetails.length
                 ? cart.map((item) => {
                     const courseItem = cartDetails.find(
-                      (detail) => item == detail.course_uuid
+                      (detail) => item == detail.code
                     );
 
                     return (

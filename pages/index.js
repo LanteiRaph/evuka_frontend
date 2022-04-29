@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 // import Image from 'next/image'
 
-import MainLayout from "../components/layout/Main";
+import MainLayout from "../components/layout/main";
 import Header from "../components/index/Header";
 import CourseSuggest from '../components/index/CourseSuggest'
 import CourseList from "../components/index/CourseList";
@@ -14,9 +14,9 @@ export default function Home({ data }) {
     <MainLayout>
       <Header />
       <CourseSuggest data={data}/>
-      <CourseList data={data}/>
+      {/* <CourseList data={data}/>
       <CategoryList data={data} />
-      <Teach/>
+      <Teach/> */}
     </MainLayout>
   );
 }
@@ -31,7 +31,7 @@ export const getServerSideProps = async ({ req, res }) => {
   }
   const data = await resAPI.json();
 
-  console.log(data)
+  
 
   return {
     props: { data },

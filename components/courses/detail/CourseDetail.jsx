@@ -10,8 +10,8 @@ function CourseDetail({ sections, total_lectures, total_length }) {
         </h2>
         <ul className="flex w-full text-sm md:text-base">
           <li className="mr-1 inline-block">{sections.length} sections</li>
-          <li className="mr-1  inline-block">• {total_episodes} lectures</li>
-          <li className="mr-1  inline-block">• {total_length} total length</li>
+          <li className="mr-1  inline-block">• {total_lectures} lectures</li>
+          <li className="mr-1  inline-block">• {total_lectures} total length</li>
         </ul>
         <div className="my-4">
           {sections.map((section, index) => (

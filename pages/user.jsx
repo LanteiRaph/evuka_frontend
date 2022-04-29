@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import MainLayout from "../components/layouts/main";
+import MainLayout from "../components/layout/main";
 import CourseItem from "../components/user/courseItem";
 import AuthContext from "../context/AuthContext";
 import { BACKEND_URI } from "../config/app";
