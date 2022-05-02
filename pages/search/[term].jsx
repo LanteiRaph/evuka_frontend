@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import MainLayout from "../../components/layouts/main";
+import MainLayout from "../../components/layout/main";
 import CourseListCard from "../../components/courses/list/CourseListCard";
 import { BACKEND_URI } from "../../config/app";
 
