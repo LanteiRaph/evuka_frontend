@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import WatchLayout from "../../../components/layouts/watch";
+import WatchLayout from "../../../components/layout/watch";
 import WatchArea from "../../../components/courses/study/WatchArea";
 import CommentArea from "../../../components/courses/study/CommentArea";
 import cookie from "cookie";
