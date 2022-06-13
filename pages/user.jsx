@@ -14,9 +14,7 @@ function user() {
   //Get the courses for the current user
   const {user: { courses }, } = useContext(AuthContext);
 
-  //On succefull load update he user with the courses
-  useEffect(async () => {
-
+  const  fetchUserPaidCourses = async () =>{
     if (courses.length > 0) {
       const res = await fetch(`${BACKEND_URI}/courses/cart/`, {
         method: "POST",
@@ -34,6 +32,11 @@ function user() {
         setCourseReady(true);
       }
     }
+  }
+  //On succefull load update he user with the courses
+  useEffect( () => {
+    //Get all paid courses for the current user 
+    fetchUserPaidCourses()
   }, []);
 
   return (
@@ -53,7 +56,7 @@ function user() {
               {courseDetail.length
                 ? courses.map((item, index) => {
                     const obj = courseDetail.find(
-                      (detail) => item == detail.course_uuid
+                      (detail) => item == detail.code
                     );
 
                     return <CourseItem key={index} course={obj} />;

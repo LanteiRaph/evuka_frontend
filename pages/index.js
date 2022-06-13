@@ -14,9 +14,9 @@ export default function Home({ data }) {
     <MainLayout>
       <Header />
       <CourseSuggest data={data}/>
-      {/* <CourseList data={data}/>
-      <CategoryList data={data} />
-      <Teach/> */}
+      <CourseList data={data}/>
+      {/* <CategoryList data={data} /> */}
+      <Teach/>
     </MainLayout>
   );
 }

@@ -80,9 +80,9 @@ export const AuthContextProvider = ({ children }) => {
     });
 
     if (res.ok) {
-      setUser(null);
+
       // push user if necessary
-      // dispatch(removeUser());
+      dispatch(removeUser());
     }
   };
 
@@ -94,11 +94,13 @@ export const AuthContextProvider = ({ children }) => {
     //Chekc status and respond
     if (res.ok) {
       const data = await res.json();
+      console.log(data)
       dispatch(addUser(data.user));
       //setUser(data.user);
     } else {
+      console.log('error')
       //setUser(null)
-        dispatch(addUser(null));
+      dispatch(addUser(null));
     }
     //Update the authready state value
     setAuthReady(true);

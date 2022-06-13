@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { CategoryCard } from "./CategoryCard";
 
 const CategoryList = ({ data }) => {
   const topics = data.map((topic) => ({
     topic_name: topic.topic_name,
-    uuid: topic.topic.code,
+    uuid: topic.topic_code,
     topic_image: topic.topic_image,
   }));
   return (

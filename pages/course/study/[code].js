@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import WatchLayout from "../../../components/layout/watch";
 import WatchArea from "../../../components/courses/study/WatchArea";
 import CommentArea from "../../../components/courses/study/CommentArea";
@@ -9,15 +9,18 @@ import { BACKEND_URI } from "../../../config/app";
 const course_uuid = ({ data }) => {
   const [comments, setComments] = useState(data.comment);
   const [title, setTitle] = useState(data.title);
+  useEffect(() => {
+      console.log(data)
+  },[])
   return (
     <WatchLayout title={title}>
-      <WatchArea sections={data.course_sections} />
+      <WatchArea sections={data.sections} />
       <CommentArea comments={comments} setComment={setComments} />
     </WatchLayout>
   );
 };
 
-export const getServerSideProps = async ({req,res,query: { course_uuid },}) => {
+export const getServerSideProps = async ({req,res,query: { code },}) => {
 
   if (!req.headers.cookie) {
     return {
@@ -56,18 +59,18 @@ export const getServerSideProps = async ({req,res,query: { course_uuid },}) => {
     }
   }
 
-  let resAPI = await fetch(`${BACKEND_URI}/courses/study/${course_uuid}/`, {
+  let resAPI = await fetch(`${BACKEND_URI}/courses/study/${code}/`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
       Authorization: `Token ${access_token}`,
     },
   });
-
+  
   if (resAPI.ok) {
     const data = await resAPI.json();
 
-    // console.log(data)
+     console.log(data)
 
     // send data in response
 

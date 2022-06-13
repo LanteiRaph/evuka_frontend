@@ -3,6 +3,8 @@ import MainLayout from "../../components/layout/main";
 import CartItem from "../../components/cart/CartItem";
 import NoItemCart from "../../components/cart/NoItemCart";
 import CartContext from "../../context/CartContext";
+import Paypal from "../../components/payments/Paypal";
+import Mpesa from "../../components/payments/Mpesa";
 import { BACKEND_URI, NEXT_BACKEND_URI } from "../../config/app";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
@@ -18,7 +20,7 @@ function CartIndex() {
 
   const [cartDetails, setCartDetails] = useState([]);
 
-  //Get thr outer for cutome redirects
+  //Get the router for cutome redirects
   const router = useRouter();
 
   //Handle the submitThis lead to payment intent
@@ -71,16 +73,16 @@ function CartIndex() {
     }
   }
 
-  //Onload send all cart items to the server.
+  //Onload send all cart items to the server. Watch cartdetails and update accoridingly.
   useEffect(  () => {
     saveCart()
-  }, []);
+  }, [cartDetails]);
 
   //Delete an item from the cart
   const removeCartDetail = (uuid) => {
     //Get the index for thge item to remove
     const index = cartDetails.findIndex(
-      (detail) => detail.course_uuid === uuid
+      (detail) => detail.code === uuid
     );
     //If index is greater than one, remove the item(item might to exist)
     if (index > -1) {
@@ -129,13 +131,8 @@ function CartIndex() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold my-2">
               ${cartTotal}
             </h2>
-            <button
-              disabled={requestingPayment}
-              onClick={handleCheckout}
-              className="block text-sm md:text-base w-full bg-red-500 my-4 py-3 text-gray-50 rounded font-semibold"
-            >
-              {requestingPayment ? "Please wait ..." : "Checkout"}
-            </button>
+            <Paypal/>
+            <Mpesa/>
             <button
               onClick={clearCart}
               className="block text-sm md:text-base w-full bg-gray-200 my-2 py-3 text-gray-800 rounded font-semibold"

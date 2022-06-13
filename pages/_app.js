@@ -1,11 +1,14 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
 import "../styles/globals.css";
-import {store} from "../redux/store";
+import 'react-toastify/dist/ReactToastify.css';
+import { store } from "../redux/store";
 import { Provider } from "react-redux";
+
 
 import { AuthContextProvider } from "../context/AuthContext";
 import { CartContextProvider } from "../context/CartContext";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
@@ -31,11 +34,14 @@ function MyApp({ Component, pageProps }) {
   }, [])
   return (
     <Provider store={store}>
-        <AuthContextProvider>
-          <CartContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <PayPalScriptProvider
+            options={{ "client-id": "AYElRjOKkBn2lK-0UWa6xQxlfWRNBnTwueyaKFeeU4tYJ-WVH0r2x4MIJVtOXYvn39rt3dZTX90d_tXO"}}>
             <Component {...pageProps} />
-          </CartContextProvider>
-        </AuthContextProvider>
+          </PayPalScriptProvider>
+        </CartContextProvider>
+      </AuthContextProvider>
     </Provider>
   );
 }
