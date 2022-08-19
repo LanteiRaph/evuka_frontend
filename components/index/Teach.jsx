@@ -1,6 +1,11 @@
 import React from "react";
+import { useRouter } from "next/router";
 
 const Teach = () => {
+  const router = useRouter()
+  const pushRoute = (route) => {
+    router.push(route);
+  };
   return (
     <section className="my-5 md:my-10">
       <div className="py-8 md:py-16">
@@ -10,7 +15,7 @@ const Teach = () => {
         >
           <div className="flex justify-center w-10/12 md:w-8/12 items-center">
             <img
-              src="assets/udemy_teacher.jpg"
+              src="assets/teacher.svg"
               className="hidden lg:block shadow-xl mr-20 rounded-md"
               style={{ width: "400px", height: "400px" }}
               alt="teacher_image"
@@ -25,7 +30,7 @@ const Teach = () => {
                 love.
               </p>
 
-              <button className="py-2 text-sm md:text-base rounded-md px-3 md:px-5 border bg-blue-500 font-semibold text-white">
+              <button onClick={() => pushRoute('/teach')} className="py-2 text-sm md:text-base rounded-md px-3 md:px-5 border bg-purple-500 font-semibold text-white">
                 Start teaching today
               </button>
             </div>

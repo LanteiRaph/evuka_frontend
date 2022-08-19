@@ -48,7 +48,7 @@ const CourseSuggest = ({ data }) => {
                 computing, and analyze markets. Essentially, data science is the
                 key to getting ahead in a competitive global climate.
               </p>
-              <button className="py-2 rounded-md px-3 text-sm md:text-base md:px-5 border bg-blue-500 font-semibold text-white">
+              <button className="py-2 rounded-md px-3 text-sm md:text-base md:px-5 border bg-purple-600 font-semibold text-white">
                 Explore{" "}
                 {suggest[0].toUpperCase() + suggest.slice(1, suggest.length)}
               </button>

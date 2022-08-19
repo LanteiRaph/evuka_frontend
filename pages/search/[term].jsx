@@ -13,7 +13,7 @@ export default function Search({ data }) {
 
   return (
     <MainLayout>
-      <section className="w-full py-20 bg-gray-900 pl-10 mb-5">
+      <section className="w-full py-20 bg-purple-900 pl-10 mb-5">
         <h2 className="text-3xl text-gray-100 font-medium">
           Courses on terms "{term}"
         </h2>

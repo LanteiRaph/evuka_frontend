@@ -146,4 +146,6 @@ function CartIndex() {
   );
 }
 
+
+
 export default CartIndex;
