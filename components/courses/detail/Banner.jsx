@@ -24,7 +24,7 @@ function Banner({ data }) {
     }
   };
   return (
-    <section className="text-gray-50 bg-gray-800 py-14 px-8">
+    <section className="text-gray-50 bg-purple-900 py-14 px-8">
       <h1 className="text-xl md:text-2xl lg:text-3xl font-semibold w-11/12 md:w-8/12 mb-2">
         {data.title}
       </h1>
@@ -53,7 +53,7 @@ function Banner({ data }) {
       {!courses.includes(code) ? (
         <button
           onClick={handleCarting}
-          className="py-2 rounded-md px-5 bg-blue-500 font-semibold  text-white"
+          className="py-2 rounded-md px-5 bg-purple-600 font-semibold  text-white"
         >
           {cart.includes(code) ? "Remove from cart" : "Add to cart"}
         </button>

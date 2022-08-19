@@ -94,7 +94,7 @@ function CartIndex() {
 
   return (
     <MainLayout>
-      <section className="w-full py-14 md:py-20 bg-gray-900 pl-10">
+      <section className="w-full py-14 md:py-20 bg-purple-900 pl-10">
         <h2 className="text-3xl text-gray-100 font-medium">Shopping Cart</h2>
       </section>
 
