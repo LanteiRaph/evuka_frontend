@@ -72,7 +72,6 @@ function CartIndex() {
       }
     }
   }
-
   //Onload send all cart items to the server. Watch cartdetails and update accoridingly.
   useEffect(  () => {
     saveCart()
