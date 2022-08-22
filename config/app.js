@@ -1,5 +1,6 @@
-export const BACKEND_URI="http://localhost:8000"
-export const NEXT_BACKEND_URI='http://localhost:3000/api'
+export const BACKEND_URI="https://evukaapi.herokuapp.com"
+export const NEXT_BACKEND_URI='evuka.lansatc.tech:3000/api'
 export const MPESA_SECRET_KEY = 'gh0yDUgDqTgYiGgp'
 export const MPESA_CUSTOMER_KEY ='blJcIKNhR0Cupc6qlzW4vm2t9I8Didey'
+export const MPESA_SECURITY_KEY = 'VGjm5dXJ/HV44grFYojJDIC4EkQ9ILKmHCo0Jkper7bqjXI7fq8jvSyz37jtKmFjOPAIbywxevjs0dFIjZPuhuLNmtt1rrBaYa1/WFoL7exLEyJegPVecgJTEHCfnoBGUY8O3ZUxCOtFmaYbF4tHRVI8lqk/nL5rhbATj5Rq1ZqtB0bZrOnfqp7NrpfJWOl/D8ox0leky4s6aH366ssrNCiOpmLnkGtQkNW01JZxgjhaM9Pn7K0udHEh04G9X2mP+xwy2RbKE/D7AjJs165wtSqaP5KH96Vd6HPxKkFxO4Z7qojHEOiSQSa5vt68n37rPk3h5QgCjSqPnGvUykUBWQ=='
 
